@@ -5,9 +5,9 @@
   <subtitle>崔伟的博客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://www.cuiweii.com/"/>
   <updated>2019-06-09T12:21:38.777Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://www.cuiweii.com/</id>
   
   <author>
     <name>崔伟</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>如何通过ORACLE函数计算截止日期</title>
-    <link href="http://yoursite.com/uncategorized/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87ORACLE%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E6%88%AA%E6%AD%A2%E6%97%A5%E6%9C%9F/"/>
-    <id>http://yoursite.com/uncategorized/如何通过ORACLE函数计算截止日期/</id>
+    <link href="http://www.cuiweii.com/uncategorized/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87ORACLE%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E6%88%AA%E6%AD%A2%E6%97%A5%E6%9C%9F/"/>
+    <id>http://www.cuiweii.com/uncategorized/如何通过ORACLE函数计算截止日期/</id>
     <published>2019-06-09T12:21:38.000Z</published>
     <updated>2019-06-09T12:21:38.777Z</updated>
     
@@ -32,8 +32,8 @@
   
   <entry>
     <title>blog</title>
-    <link href="http://yoursite.com/ORACLE/blog/"/>
-    <id>http://yoursite.com/ORACLE/blog/</id>
+    <link href="http://www.cuiweii.com/ORACLE/blog/"/>
+    <id>http://www.cuiweii.com/ORACLE/blog/</id>
     <published>2019-06-09T12:18:34.000Z</published>
     <updated>2019-06-09T12:58:06.247Z</updated>
     
@@ -51,17 +51,17 @@
     
     </summary>
     
-      <category term="ORACLE" scheme="http://yoursite.com/categories/ORACLE/"/>
+      <category term="ORACLE" scheme="http://www.cuiweii.com/categories/ORACLE/"/>
     
     
-      <category term="ORACLE" scheme="http://yoursite.com/tags/ORACLE/"/>
+      <category term="ORACLE" scheme="http://www.cuiweii.com/tags/ORACLE/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/uncategorized/hello-world/"/>
-    <id>http://yoursite.com/uncategorized/hello-world/</id>
+    <link href="http://www.cuiweii.com/uncategorized/hello-world/"/>
+    <id>http://www.cuiweii.com/uncategorized/hello-world/</id>
     <published>2019-06-06T09:34:34.982Z</published>
     <updated>2019-06-06T09:34:34.982Z</updated>
     

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yoursite.com/ORACLE/blog/</loc>
+    <loc>http://www.cuiweii.com/ORACLE/blog/</loc>
     <lastmod>2019-06-09</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/uncategorized/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87ORACLE%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E6%88%AA%E6%AD%A2%E6%97%A5%E6%9C%9F/</loc>
+    <loc>http://www.cuiweii.com/uncategorized/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87ORACLE%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E6%88%AA%E6%AD%A2%E6%97%A5%E6%9C%9F/</loc>
     <lastmod>2019-06-09</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/uncategorized/hello-world/</loc>
+    <loc>http://www.cuiweii.com/uncategorized/hello-world/</loc>
     <lastmod>2019-06-06</lastmod>
   </url>
 </urlset>
