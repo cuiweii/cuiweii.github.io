@@ -32,10 +32,10 @@
   
   <entry>
     <title>blog</title>
-    <link href="http://yoursite.com/uncategorized/blog/"/>
-    <id>http://yoursite.com/uncategorized/blog/</id>
+    <link href="http://yoursite.com/ORACLE/blog/"/>
+    <id>http://yoursite.com/ORACLE/blog/</id>
     <published>2019-06-09T12:18:34.000Z</published>
-    <updated>2019-06-09T12:48:22.679Z</updated>
+    <updated>2019-06-09T12:58:06.247Z</updated>
     
     <content type="html"><![CDATA[<h1 id="这是我的第一篇博文"><a href="#这是我的第一篇博文" class="headerlink" title="这是我的第一篇博文"></a>这是我的第一篇博文</h1><blockquote><p>这是一个引用</p></blockquote><p>这是一个表格</p><table><thead><tr><th>12212</th><th>22222</th><th>2111</th></tr></thead><tbody><tr><td>飞</td><td>啊</td><td>地方</td></tr><tr><td>是</td><td>飞</td><td>打打</td></tr><tr><td>飞</td><td>飞</td><td>飞</td></tr></tbody></table><p>这是一段代码</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"Hello World!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>$$ {牛顿第二定律}<br>F = ma<br>$$ {力是改变物体运动状态的原因}</p><p>这是一个有序列表</p><ol><li>ddd</li><li>方法</li><li>ffda</li><li>444aa</li></ol><p>这是一个无序列表</p><ul><li>附加2</li><li>发的发就爱</li><li>22fda</li></ul><ul><li><input disabled type="checkbox"> fffad</li><li><input disabled type="checkbox"> aaaaa</li></ul><p>fffd</p><hr><p>[TOC]</p>]]></content>
     
@@ -50,6 +50,8 @@
       
     
     </summary>
+    
+      <category term="ORACLE" scheme="http://yoursite.com/categories/ORACLE/"/>
     
     
       <category term="ORACLE" scheme="http://yoursite.com/tags/ORACLE/"/>

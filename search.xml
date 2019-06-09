@@ -7,8 +7,11 @@
   </entry>
   <entry>
     <title><![CDATA[blog]]></title>
-    <url>%2Funcategorized%2Fblog%2F</url>
+    <url>%2FORACLE%2Fblog%2F</url>
     <content type="text"><![CDATA[这是我的第一篇博文 这是一个引用 这是一个表格 12212 22222 2111 飞 啊 地方 是 飞 打打 飞 飞 飞 这是一段代码 123public static void main(String[] args)&#123; System.out.println("Hello World!");&#125; $$ {牛顿第二定律}F = ma$$ {力是改变物体运动状态的原因} 这是一个有序列表 ddd 方法 ffda 444aa 这是一个无序列表 附加2 发的发就爱 22fda fffad aaaaa fffd [TOC]]]></content>
+      <categories>
+        <category>ORACLE</category>
+      </categories>
       <tags>
         <tag>ORACLE</tag>
       </tags>
