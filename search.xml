@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[test]]></title>
+    <url>%2Funcategorized%2Ff%2F</url>
+    <content type="text"><![CDATA[一级标题二级标题### 四级标题五级标题fffa]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2Funcategorized%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[如何通过ORACLE函数计算截止日期]]></title>
+    <url>%2FORACLE%2F%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87ORACLE%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E6%88%AA%E6%AD%A2%E6%97%A5%E6%9C%9F%2F</url>
+    <content type="text"><![CDATA[ORACLE计算一个日期加上指定工作日之后的时间​ 我们开发过程中经常需要计算截止日期，如果是简单向后数几天这种都很简单，但是一旦涉及到计算工作日(除法定节假日及周六日)，就比较麻烦了。 建立一张法定节假日及调休相关情况表。1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253-- ------------------------------ Table structure for T_CONF_CALENDAR-- ----------------------------DROP TABLE "ZWFWPT_ZBBA"."T_CONF_CALENDAR";CREATE TABLE "ZWFWPT_ZBBA"."T_CONF_CALENDAR" ( "KID_RLJLH" VARCHAR2(50 BYTE) NOT NULL , "MC" VARCHAR2(100 BYTE) , "DM" DATE , "NF" NUMBER , "YF" NUMBER , "RQ" NUMBER , "XQ" VARCHAR2(50 BYTE) , "SFJJR" NUMBER )TABLESPACE "ZWFWPT"LOGGINGNOCOMPRESSPCTFREE 10INITRANS 1STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 BUFFER_POOL DEFAULT)PARALLEL 1NOCACHEDISABLE ROW MOVEMENT;COMMENT ON COLUMN "ZWFWPT_ZBBA"."T_CONF_CALENDAR"."KID_RLJLH" IS '日历记录号';COMMENT ON COLUMN "ZWFWPT_ZBBA"."T_CONF_CALENDAR"."MC" IS '名称';COMMENT ON COLUMN "ZWFWPT_ZBBA"."T_CONF_CALENDAR"."DM" IS '代码';COMMENT ON COLUMN "ZWFWPT_ZBBA"."T_CONF_CALENDAR"."NF" IS '年份';COMMENT ON COLUMN "ZWFWPT_ZBBA"."T_CONF_CALENDAR"."YF" IS '月份';COMMENT ON COLUMN "ZWFWPT_ZBBA"."T_CONF_CALENDAR"."RQ" IS '日期';COMMENT ON COLUMN "ZWFWPT_ZBBA"."T_CONF_CALENDAR"."XQ" IS '星期';COMMENT ON COLUMN "ZWFWPT_ZBBA"."T_CONF_CALENDAR"."SFJJR" IS '是否节假日 0节假日 1调休上班日';COMMENT ON TABLE "ZWFWPT_ZBBA"."T_CONF_CALENDAR" IS '配置表-日历配置表';-- ------------------------------ Primary Key structure for table T_CONF_CALENDAR-- ----------------------------ALTER TABLE "ZWFWPT_ZBBA"."T_CONF_CALENDAR" ADD CONSTRAINT "SYS_C0068227" PRIMARY KEY ("KID_RLJLH");-- ------------------------------ Checks structure for table T_CONF_CALENDAR-- ----------------------------ALTER TABLE "ZWFWPT_ZBBA"."T_CONF_CALENDAR" ADD CONSTRAINT "SYS_C0068222" CHECK ("KID_RLJLH" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;ALTER TABLE "ZWFWPT_ZBBA"."T_CONF_CALENDAR" ADD CONSTRAINT "SYS_C0068223" CHECK ("KID_RLJLH" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;ALTER TABLE "ZWFWPT_ZBBA"."T_CONF_CALENDAR" ADD CONSTRAINT "SYS_C0068224" CHECK ("KID_RLJLH" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;ALTER TABLE "ZWFWPT_ZBBA"."T_CONF_CALENDAR" ADD CONSTRAINT "SYS_C0068225" CHECK ("KID_RLJLH" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE;ALTER TABLE "ZWFWPT_ZBBA"."T_CONF_CALENDAR" ADD CONSTRAINT "SYS_C0068226" CHECK ("KID_RLJLH" IS NOT NULL) NOT DEFERRABLE INITIALLY IMMEDIATE NORELY VALIDATE; ​ 这里我已经添加了一些节假日及调休记录，如下图所示： 判断一个日期是工作日的条件是什么，工作日必须同时满足以下几个条件：​ 非法定节假日并且非周六周日或者是调休上班日。 ​ 非法定节假日判断(只需要判断日期是否存在于日历配置表中并且为法定节假日) 123456SELECT SYSDATE FROMDUAL WHERE SYSDATE NOT IN ( SELECT DM FROM T_CONF_CALENDAR WHERE SFJJR = 0 ) ​ 非周六日判断，这里给出判断SQL，Oracle判断周六日可以参考这篇文章 oracle判断日期不在周六周日 123456SELECT SYSDATE FROMDUAL WHERE TO_CHAR(SYSDATE,'D') NOT IN (1,7) ​ 是调休上班日 123456SELECT SYSDATE FROMDUAL WHERE SYSDATE IN （SELECT DM FROM T_CONF_CALENDAR WHERE SFJJR = 1） ​ 综合三个条件使用AND、OR连接条件后得到判断工作日SQL语句 12345678SELECT DAY_ID FROM ( SELECT SYSDATE DAY_ID FROM DUAL ) WHERE TO_CHAR ( DAY_ID, 'D' ) NOT IN ( 1, 7 ) AND DAY_ID NOT IN ( SELECT DM FROM T_CONF_CALENDAR WHERE SFJJR = 0 ) OR DAY_ID IN ( SELECT DM FROM T_CONF_CALENDAR WHERE SFJJR = 1 ) 通过数据库函数来实现计算工作日的功能​ 思路是自定义一个函数FUNC_GETDEADLINE,输入两个变量INPUTDATE（输入日期）和DAY_OFFSET（计算DAY_OFFSET个工作日后的日期），通过WHILE循环，如果判断一个日期为工作日则将工作日数量加1，直到达到DAY_OFFSET个工作日，然后跳出WHILE循环返回计算得到的工作日日期。 ​ 这里有一种特殊的判断，传入的DAY_OFFSET为正数时我们可以理解为计算DAY_OFFSET个工作日之后的日期，传入的DAY_OFFSET为负数时又该如何理解呢？既然为正数是向后推算，那么为负数则可理解为计算DAY_OFFSET个工作日之前的日期，所以函数中多了一个ELSE判断用于处理这种情况。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556CREATE OR REPLACEFUNCTION FUNC_GETDEADLINE (INPUTDATE DATE, DAY_OFFSET NUMBER)RETURN DATEIS CURR_OFFSET NUMBER := 0;IS_WORK_DAY NUMBER;CURR_DATE DATE;BEGIN IF(INPUTDATE = NULL) THEN RETURN NULL; ELSE CURR_DATE := INPUTDATE; END IF; IF DAY_OFFSET = 0 THEN RETURN TO_DATE(TO_CHAR(INPUTDATE,'YYYY-MM-DD'),'YYYY-MM-DD'); END IF; IF DAY_OFFSET &gt; 0 THEN WHILE CURR_OFFSET &lt; DAY_OFFSET LOOP CURR_DATE:=CURR_DATE + 1; SELECT COUNT(0) INTO IS_WORK_DAY FROM ( SELECT CURR_DATE DAY_ID FROM DUAL ) WHERE TO_CHAR ( DAY_ID, 'D' ) NOT IN ( 1, 7 ) AND DAY_ID NOT IN ( SELECT DM FROM T_CONF_CALENDAR WHERE SFJJR = 0 ) OR DAY_ID IN ( SELECT DM FROM T_CONF_CALENDAR WHERE SFJJR = 1 ); IF(IS_WORK_DAY = 1) THEN CURR_OFFSET := CURR_OFFSET + 1; END IF; END LOOP; ELSE WHILE CURR_OFFSET &gt; DAY_OFFSET LOOP CURR_DATE := CURR_DATE - 1; SELECT COUNT(0) INTO IS_WORK_DAY FROM ( SELECT CURR_DATE DAY_ID FROM DUAL ) WHERE TO_CHAR ( DAY_ID, 'D' ) NOT IN ( 1, 7 ) AND DAY_ID NOT IN ( SELECT DM FROM T_CONF_CALENDAR WHERE SFJJR = 0 ) OR DAY_ID IN ( SELECT DM FROM T_CONF_CALENDAR WHERE SFJJR = 1 ); IF(IS_WORK_DAY = 1) THEN CURR_OFFSET := CURR_OFFSET - 1; END IF; END LOOP; END IF; RETURN TO_DATE(TO_CHAR(CURR_DATE,'YYYY-MM-DD'),'YYYY-MM-DD');END FUNC_GETDEADLINE; 第一次写博客，有一些表述不太到位的地方，欢迎留言交流！]]></content>
+      <categories>
+        <category>ORACLE</category>
+      </categories>
+      <tags>
+        <tag>ORACLE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[blog]]></title>
+    <url>%2FORACLE%2Fblog%2F</url>
+    <content type="text"><![CDATA[这是我的第一篇博文 这是一个引用 这是一个表格 12212 22222 2111 飞 啊 地方 是 飞 打打 飞 飞 飞 这是一段代码 123public static void main(String[] args)&#123; System.out.println("Hello World!");&#125; $$ {牛顿第二定律}F = ma$$ {力是改变物体运动状态的原因} 这是一个有序列表 ddd 方法 ffda 444aa 这是一个无序列表 附加2 发的发就爱 22fda fffad aaaaa fffd [TOC]]]></content>
+      <categories>
+        <category>ORACLE</category>
+      </categories>
+      <tags>
+        <tag>ORACLE</tag>
+      </tags>
+  </entry>
+</search>
